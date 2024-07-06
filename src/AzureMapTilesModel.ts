@@ -62,10 +62,11 @@ export class AzureMapTilesModel extends UrlTileSetModel {
     private readonly _eventedSupport: EventedSupport;
     private subscriptionKey: string;
     private tilesetId: string;
+    private version: string;
 
     constructor(options: AzureMapTilesModelOptions) {
         const azureUrl = "https://atlas.microsoft.com/map/tile";
-        const apiVersion = options.version ? options.version : "2.1";
+        const apiVersion = options.version ? options.version : "2024-04-01";
         const tilesetId = options.tilesetId ? options.tilesetId : AzureTileSets.Imagery;
         const language= options.language ? options.language : "en-US";
         const tileSize = options.tileSize ? options.tileSize : 256;
@@ -99,6 +100,7 @@ export class AzureMapTilesModel extends UrlTileSetModel {
         (this as any).tileRefinementStrategy = 1;
         this.subscriptionKey = subscriptionKey;
         this.tilesetId = tilesetId;
+        this.version = apiVersion;
         this._referenceToWGS84 = createTransformation(WEB_MERCATOR, WGS84);
         this._areaBounds = createBounds(WEB_MERCATOR, []);
         this._wgs84Bounds = createBounds(WGS84, []);
@@ -126,7 +128,7 @@ export class AzureMapTilesModel extends UrlTileSetModel {
                 west: i.x
             };
             const subscriptionKey = this.subscriptionKey;
-            const apiVersion = "2.1";
+            const apiVersion = this.version;
             const boundsStr = `${options.west},${options.south},${options.east},${options.north}`;
             const l = `${AzureMapTilesModel.azureAttribution}?api-version=${apiVersion}&tilesetId=${this.tilesetId}&zoom=${zoom}&bounds=${boundsStr}&subscription-key=${subscriptionKey}`;
             const u = request(l).then((response => response.json())).then((jsonData => {
