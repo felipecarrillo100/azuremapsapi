@@ -4,7 +4,7 @@
 The azuremapsapi package provides OGC API functionalities to LuciadRIA Application.
 
 Implements
-* __Azure API Maps API for LuciadRIA__ 
+* __Azure Maps API for LuciadRIA__ 
 
 The Main Components are:
 
