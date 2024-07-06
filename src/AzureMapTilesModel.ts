@@ -8,7 +8,6 @@ import {Transformation} from "@luciad/ria/transformation/Transformation";
 import {Bounds} from "@luciad/ria/shape/Bounds";
 import {EventedSupport} from "@luciad/ria/util/EventedSupport";
 import {Handle} from "@luciad/ria/util/Evented";
-import "./AzureMapTilesModel.css";
 
 const AttributionChanged = "AttributionChanged";
 
