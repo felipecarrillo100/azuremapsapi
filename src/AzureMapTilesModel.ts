@@ -143,7 +143,7 @@ export class AzureMapTilesModel extends UrlTileSetModel {
                 const aTags = linkArray.map(link=>{
                     const element  = document.createElement("div")
                     element.innerHTML = link;
-                    return element.innerText;
+                    return element.textContent;
                 })
                 if (!this._lastRequestResult.includes(aTags)) this._lastRequestResult.push(aTags)
             }

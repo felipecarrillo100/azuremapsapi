@@ -25,12 +25,17 @@ Then you can publish the package to npm or other repository
 
 ## To test
 Some test have been added that runs using nodejs using Jest. No browser test is available at the moment.
-The test uses isomorphic-fetch to provide fetch in node testing with jest.
+The test uses isomorphic-fetch to provide fetch in node testing with jest. It also emulates the canvas to retrieve the tiles using img.onload.
 ```
 npm run test
 ```
-Test use the sever-side implementations of OGC Open API from "https://demo.pygeoapi.io/master/" and "https://maps.gnosis.earth/ogcapi/"
-The servers are reliable and stable,  but take in t account that changes at the server may brake some tests of this client.
+Before running the test you need to define a .env file at the root folder of the project with the Azure Maps API Key and the LuciadRIA licwnse
+```env
+AZURE_KEY=YOUR_AZURE_MAPS_KEY
+LICENSE='# YOUR LuciadRIA LICENSE 
+           In MULTIPLE ROWS BETWEEN SINGLE QUOTES
+#'
+```
 
 ## To use in your project
 
