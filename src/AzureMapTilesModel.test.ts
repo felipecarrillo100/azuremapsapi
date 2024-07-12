@@ -8,7 +8,7 @@ const sleep = (index: number) => {
 };
 
 import {setLicenseText} from "@luciad/ria/util/License";
-import {AzureMapTilesModel, AzureTileSets} from "./AzureMapTilesModel";
+import {AzureMapTilesModel, AzureMapTilesModelOptions, AzureTileSets} from "./AzureMapTilesModel";
 
 
 setLicenseText(process.env.license);
@@ -41,7 +41,7 @@ describe('AzureMapTilesModel',  () => {
     });
 
     test('AzureMapTilesModel.getImage',  async () => {
-        const options: any = {
+        const options: AzureMapTilesModelOptions = {
             key: key,
             tilesetId: AzureTileSets.Imagery,
             version: "2024-04-01"
@@ -52,7 +52,7 @@ describe('AzureMapTilesModel',  () => {
             return new Promise((resolve, reject)=>{
                 model.getImage({level:1, x:0, y:0}, (tile, image)=>{
                     resolve({tile, image})
-                }, (tile, error)=>{
+                }, ()=>{
                     reject()
                 }, undefined);
             })

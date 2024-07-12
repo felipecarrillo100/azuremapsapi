@@ -1,9 +1,9 @@
 # Azure Maps API's prototype for LuciadRIA 
 
 ## Description
-The azuremapsapi package provides OGC API functionalities to LuciadRIA Application.
+The azuremapsapi package provides a library to use Azure Maps API a LuciadRIA Application.
 
-Implements
+This package Implements
 * __Azure Maps API for LuciadRIA__ 
 
 The Main Components are:
@@ -47,11 +47,19 @@ npm install azuremapsapi
 
 For Maps and Tiles use OgcOpenApiMapsModel and OgcOpenApiTilesModel:
 ```typescript
-import {AzureMapTilesModel} from "azuremapsapi/lib/AzureMapTilesModel";
+import {AzureMapTilesModel, AzureMapTilesModelOptions} from "azuremapsapi/lib/AzureMapTilesModel";
 ```
 AzureMapTilesModel extend from UrlTileSetModel, so you can use it in combination with RasterTileSetLayer. 
 Look at the LuciadRIA documentation if you need further information on using RasterTileSetLayer. 
 
+```typescript
+const options: AzureMapTilesModelOptions = {
+    key: YOUR_AZURE_KEY,
+    tilesetId: AzureTileSets.Imagery,
+}
+const model = new AzureMapTilesModel(options);
+const layer = new RasterTileSetLayer(model, {label: "Satellite"});
+```
 
 ## Requirements
 * LuciadRIA 2023.1 or higher (place LuciadRIA on a local npm repository for instance verdaccio )
