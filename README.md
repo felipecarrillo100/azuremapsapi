@@ -1,7 +1,7 @@
 # Azure Maps API's prototype for LuciadRIA 
 
 ## Description
-The azuremapsapi package provides an Azure Maps API library for LuciadRIA Application.
+The azuremapsapi package provides an Azure Maps API library for LuciadRIA.
 
 This package Implements
 * __Azure Maps API for LuciadRIA__ 
