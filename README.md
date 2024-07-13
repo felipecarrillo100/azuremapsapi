@@ -8,7 +8,7 @@ This package Implements
 
 The Main Components are:
 
-* __AzureMapTilesModel__:  a ready to use LuciadRIA Raster model capable to retrieve tiles from Azure Map tiles
+* __AzureMapTilesModel__:  a ready to use LuciadRIA Raster model capable to retrieve tiles from Azure Map tiles. It also implements getAttribution
 * __AzureMapSearchAddress__:  search for an address using Azure Maps location API
 * __AzureMapGeocoding__:  perform a search for features at a lon, lat location using Azure Maps location API
 
@@ -45,7 +45,7 @@ Simply import the NPM package into your project
 npm install azuremapsapi
 ``` 
 
-For Maps and Tiles use OgcOpenApiMapsModel and OgcOpenApiTilesModel:
+For Maps Tiles use AzureMapTilesModel and AzureMapTilesModelOptions:
 ```typescript
 import {AzureMapTilesModel, AzureMapTilesModelOptions} from "azuremapsapi/lib/AzureMapTilesModel";
 ```
