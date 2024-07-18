@@ -145,7 +145,7 @@ export class AzureMapTilesModel extends UrlTileSetModel {
                     element.innerHTML = link;
                     return element.textContent;
                 })
-                if (!this._lastRequestResult.includes(aTags)) this._lastRequestResult.push(aTags)
+                if (!this._lastRequestResult.includes(aTags[0])) this._lastRequestResult.push(aTags[0]);
             }
             this._eventedSupport.emit(AttributionChanged)
         })).catch((() => {}));
